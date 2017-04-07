@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         doMappings();
 
         chartIQ.setRefreshInterval(REFRESH_INTERVAL);
+        symbolInput.setText(defaultSymbol);
 
         chartIQ.setDataSource(new ChartIQ.DataSource() {
             @Override
@@ -425,8 +426,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     data = new Gson().fromJson(body, OHLCChart[].class);
                     callback.execute(data);
-//                    chartIQ.pushData(symbol, data);
-                    symbolInput.setText(symbol);
                 }
 
                 chartLoaded = true;
