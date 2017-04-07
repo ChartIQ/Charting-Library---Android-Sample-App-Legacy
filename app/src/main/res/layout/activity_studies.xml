@@ -129,7 +129,7 @@
         android:clipToPadding="false"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
 
-    <com.chartiq.chartiq.ChartIQ
+    <com.chartiq.sdk.ChartIQ
         android:id="@+id/chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

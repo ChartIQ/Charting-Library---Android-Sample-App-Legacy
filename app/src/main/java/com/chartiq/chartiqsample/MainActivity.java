@@ -17,7 +17,6 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -34,11 +33,11 @@ import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.chartiq.chartiq.ChartIQ;
-import com.chartiq.chartiq.Promise;
-import com.chartiq.chartiq.User;
-import com.chartiq.chartiq.model.OHLCChart;
-import com.chartiq.chartiq.model.Study;
+import com.chartiq.sdk.ChartIQ;
+import com.chartiq.sdk.Promise;
+import com.chartiq.sdk.User;
+import com.chartiq.sdk.model.OHLCChart;
+import com.chartiq.sdk.model.Study;
 import com.chartiq.chartiqsample.studies.StudiesActivity;
 import com.google.gson.Gson;
 
@@ -64,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int DRAW_REQUEST_CODE = 1;
     private static final int STUDIES_REQUEST_CODE = 2;
     private static final int CHART_OPTIONS_REQUEST_CODE = 3;
+    private static final int REFRESH_INTERVAL = 1;
+    private static final String defaultSymbol = "AAPL";
+    public static final String chartUrl = "http://192.168.1.31:8080/3.0.0/default/template-native-sdk.html";
     ChartIQ chartIQ;
 
     //top toolbar
@@ -93,27 +95,27 @@ public class MainActivity extends AppCompatActivity {
     boolean chartLoaded = false;
 
     private final Item[] items = new Item[]{
-        new Item("header", "Intervals", -1),
-        new Item("divider", null, -1),
-        new Item("item", "1 minute", R.id.m1),
-        new Item("item", "3 minute", R.id.m3),
-        new Item("item", "5 minute", R.id.m5),
-        new Item("item", "10 minute", R.id.m10),
-        new Item("item", "30 minute", R.id.m30),
-        new Item("divider", null, -1),
-        new Item("item", "1 hour", R.id.h1),
-        new Item("item", "4 hour", R.id.h4),
-        new Item("divider", null, -1),
-        new Item("item", "1 day", R.id.d1, true),
-        new Item("item", "2 day", R.id.d2),
-        new Item("item", "3 day", R.id.d3),
-        new Item("item", "5 day", R.id.d5),
-        new Item("item", "10 day", R.id.d10),
-        new Item("item", "20 day", R.id.d10),
-        new Item("divider", null, -1),
-        new Item("item", "1 week", R.id.w1),
-        new Item("divider", null, -1),
-        new Item("item", "1 month", R.id.month1)
+            new Item("header", "Intervals", -1),
+            new Item("divider", null, -1),
+            new Item("item", "1 minute", R.id.m1),
+            new Item("item", "3 minute", R.id.m3),
+            new Item("item", "5 minute", R.id.m5),
+            new Item("item", "10 minute", R.id.m10),
+            new Item("item", "30 minute", R.id.m30),
+            new Item("divider", null, -1),
+            new Item("item", "1 hour", R.id.h1),
+            new Item("item", "4 hour", R.id.h4),
+            new Item("divider", null, -1),
+            new Item("item", "1 day", R.id.d1, true),
+            new Item("item", "2 day", R.id.d2),
+            new Item("item", "3 day", R.id.d3),
+            new Item("item", "5 day", R.id.d5),
+            new Item("item", "10 day", R.id.d10),
+            new Item("item", "20 day", R.id.d10),
+            new Item("divider", null, -1),
+            new Item("item", "1 week", R.id.w1),
+            new Item("divider", null, -1),
+            new Item("item", "1 month", R.id.month1)
     };
 
     @Override
@@ -122,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_main);
         doMappings();
+
+        chartIQ.setRefreshInterval(REFRESH_INTERVAL);
 
         chartIQ.setDataSource(new ChartIQ.DataSource() {
             @Override
@@ -140,14 +144,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        chartIQ.start("JGPHS0Pk6St63QUBdHk5uVZDM11T2Z1d1/BFz9E8HyI=", "http://sstest.rokolabs.com/chartiq/template.roko.v3.html", new ChartIQ.CallbackStart() {
+        chartIQ.start("JGPHS0Pk6St63QUBdHk5uVZDM11T2Z1d1/BFz9E8HyI=", chartUrl, new ChartIQ.CallbackStart() {
             @Override
             public void onStart() {
                 ChartIQ.setUser("android@chartiq.com", new ChartIQ.SetUserCallback() {
                     @Override
                     public void onSetUser(User user) {
-                        chartIQ.setDataMethod(ChartIQ.DataMethod.PULL);
-                        chartIQ.setSymbol("APPL");
+                        chartIQ.setDataMethod(ChartIQ.DataMethod.PULL, defaultSymbol);
+                        chartIQ.setSymbol(defaultSymbol);
                     }
                 });
             }
@@ -524,6 +528,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startStudiesActivity(View view) {
         if (chartLoaded) {
+            System.out.println("THE CHART IS LOADED");
             chartIQ.getStudyList().than(new Promise.Callback<Study[]>() {
                 @Override
                 public void call(final Study[] studies) {
@@ -599,7 +604,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (STUDIES_REQUEST_CODE == requestCode) {
             if (RESULT_OK == resultCode) {
                 for (Study activeStudy : activeStudies) {
-                    chartIQ.removeStudy(activeStudy);
+                    chartIQ.removeStudy(activeStudy.shortName);
                 }
                 activeStudies = (ArrayList<Study>) data.getSerializableExtra(ACTIVE_STUDIES);
                 for (Study activeStudy : activeStudies) {
@@ -666,21 +671,21 @@ public class MainActivity extends AppCompatActivity {
     public void changeFillColor(View view) {
         fillColorPalette.dismiss();
         fill.getChildAt(1).setBackgroundColor(Color.parseColor(String.valueOf(view.getTag())));
-        chartIQ.setDrawingParameter("fillColor", "\"" + String.valueOf(view.getTag()) + "\"");
+        chartIQ.setDrawingParameter("\"fillColor\"", "\"" + String.valueOf(view.getTag()) + "\"");
     }
 
     public void changeLineColor(View view) {
         lineColorPalette.dismiss();
         line.getChildAt(1).setBackgroundColor(Color.parseColor(String.valueOf(view.getTag())));
-        chartIQ.setDrawingParameter("currentColor", "\"" + String.valueOf(view.getTag()) + "\"");
+        chartIQ.setDrawingParameter("\"currentColor\"", "\"" + String.valueOf(view.getTag()) + "\"");
     }
 
     public void changeLineType(View view) {
         lineTypePalette.dismiss();
         lineType.setImageDrawable(((ImageView) view).getDrawable());
         String pattern = String.valueOf(view.getTag());
-        chartIQ.setDrawingParameter("pattern", "\"" + pattern.substring(0, pattern.length() - 1) + "\"");
-        chartIQ.setDrawingParameter("lineWidth", pattern.substring(pattern.length() - 1));
+        chartIQ.setDrawingParameter("\"pattern\"", "\"" + pattern.substring(0, pattern.length() - 1) + "\"");
+        chartIQ.setDrawingParameter("\"lineWidth\"", pattern.substring(pattern.length() - 1));
     }
 
     class Item {

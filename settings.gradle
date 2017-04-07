@@ -1,1 +1,1 @@
-include ':app', ':chartiq'
+include ':app', ':chartiq-release'

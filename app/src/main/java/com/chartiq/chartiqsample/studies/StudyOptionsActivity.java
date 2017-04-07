@@ -19,7 +19,7 @@ import android.widget.PopupWindow;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.chartiq.chartiq.model.Study;
+import com.chartiq.sdk.model.Study;
 import com.chartiq.chartiqsample.ColorAdapter;
 import com.chartiq.chartiqsample.R;
 import com.google.gson.Gson;

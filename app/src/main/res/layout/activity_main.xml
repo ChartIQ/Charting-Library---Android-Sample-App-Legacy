@@ -8,7 +8,7 @@
 
     <include layout="@layout/top_toolbar"/>
 
-    <com.chartiq.chartiq.ChartIQ
+    <com.chartiq.sdk.ChartIQ
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="0dp"

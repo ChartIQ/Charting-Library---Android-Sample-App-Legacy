@@ -24,7 +24,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.chartiq.chartiq.model.Study;
+import com.chartiq.sdk.model.Study;
 import com.chartiq.chartiqsample.R;
 import com.chartiq.chartiqsample.ui.StickyHeaderAdapter;
 

@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.chartiq.chartiq.ChartIQ;
+import com.chartiq.sdk.ChartIQ;
 
 public class ChartOptions extends AppCompatActivity {
 
