@@ -458,52 +458,52 @@ public class MainActivity extends AppCompatActivity {
     public void setInterval(Item item) {
         switch (item.id) {
             case R.id.m1:
-                chartIQ.setPeriodicity(1, "minute", null);
+                chartIQ.setPeriodicity(1, "1", "minute");
                 break;
             case R.id.m3:
-                chartIQ.setPeriodicity(3, "minute", null);
+                chartIQ.setPeriodicity(1, "3", "minute");
                 break;
             case R.id.m5:
-                chartIQ.setPeriodicity(5, "minute", null);
+                chartIQ.setPeriodicity(1, "5", "minute");
                 break;
             case R.id.m10:
-                chartIQ.setPeriodicity(10, "minute", null);
+                chartIQ.setPeriodicity(1, "10", "minute");
                 break;
             case R.id.m15:
-                chartIQ.setPeriodicity(15, "minute", null);
+                chartIQ.setPeriodicity(1, "15", "minute");
                 break;
             case R.id.m30:
-                chartIQ.setPeriodicity(30, "minute", null);
+                chartIQ.setPeriodicity(1, "30", "minute");
                 break;
             case R.id.h1:
-                chartIQ.setPeriodicity(60, "minute", null);
+                chartIQ.setPeriodicity(1, "60", "minute");
                 break;
             case R.id.h4:
-                chartIQ.setPeriodicity(240, "minute", null);
+                chartIQ.setPeriodicity(1, "240", "minute");
                 break;
             case R.id.d1:
-                chartIQ.setPeriodicity(1, "day", null);
+                chartIQ.setPeriodicity(1, "day", "minute");
                 break;
             case R.id.d2:
-                chartIQ.setPeriodicity(2, "day", null);
+                chartIQ.setPeriodicity(2, "day", "minute");
                 break;
             case R.id.d3:
-                chartIQ.setPeriodicity(3, "day", null);
+                chartIQ.setPeriodicity(3, "day", "minute");
                 break;
             case R.id.d5:
-                chartIQ.setPeriodicity(5, "day", null);
+                chartIQ.setPeriodicity(5, "day", "minute");
                 break;
             case R.id.d10:
-                chartIQ.setPeriodicity(10, "day", null);
+                chartIQ.setPeriodicity(10, "day", "minute");
                 break;
             case R.id.d20:
-                chartIQ.setPeriodicity(20, "day", null);
+                chartIQ.setPeriodicity(20, "day", "minute");
                 break;
             case R.id.w1:
-                chartIQ.setPeriodicity(1, "week", null);
+                chartIQ.setPeriodicity(1, "week", "minute");
                 break;
             case R.id.month1:
-                chartIQ.setPeriodicity(1, "month", null);
+                chartIQ.setPeriodicity(1, "month", "minute");
                 break;
         }
         interval.setText(item.title);
@@ -528,7 +528,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void startStudiesActivity(View view) {
         if (chartLoaded) {
-            System.out.println("THE CHART IS LOADED");
             chartIQ.getStudyList().than(new Promise.Callback<Study[]>() {
                 @Override
                 public void call(final Study[] studies) {
