@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:background="#151f28">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="28dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/red_button"
+            android:onClick="removeStudy"
+            android:text="Remove"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/study_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#cccccc"
+        android:padding="8dp"
+        android:text="Study title"
+        android:layout_below="@+id/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/apply_button"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/study_title">
+
+        <LinearLayout
+            android:id="@+id/options"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/apply_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bt_reset_default"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        android:background="#6666ff"
+
+        android:onClick="applyChanges"
+        android:text="Apply Changes"
+
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/bt_reset_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+
+        android:onClick="resetToDefaults"
+        android:text="Reset to Defaults"
+        android:textColor="#6666ff" />
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ChartIQ</string>
+    <string name="search_for_studies">Search for studies</string>
+
+    <string-array name="time_units">
+        <item>millisecond</item>
+        <item>second</item>
+        <item>minute</item>
+    </string-array>
+
+</resources>

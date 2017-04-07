@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/top_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="#151f28">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="16dp"
+        android:padding="8dp"
+        android:src="@drawable/icon"/>
+
+    <EditText
+        android:id="@+id/symbol"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:hint="Symbol"
+        android:lines="1"
+        android:inputType="text"
+        android:textAllCaps="true"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:textColor="#ffffff"
+        android:textColorHint="#666666"
+        android:textSize="24dp"/>
+
+    <TextView
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:width="48dp"
+        android:height="48dp"
+        android:background="@null"
+        android:gravity="center"
+        android:text="x"
+        android:textColor="#ffffff"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/interval"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:text="1 Day"
+        android:textColor="#ffffff"/>
+
+    <ImageView
+        android:id="@+id/crosshair"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:padding="16dp"
+        android:src="@drawable/target_off"/>
+
+</LinearLayout>

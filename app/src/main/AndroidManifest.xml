@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.chartiq.chartiqsample">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name="com.chartiq.chartiqsample.MainActivity"
+            android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.chartiq.chartiqsample.DrawActivity"
+            android:label="Select a drawing tool"
+            android:parentActivityName="com.chartiq.chartiqsample.MainActivity"/>
+        <activity
+            android:name="com.chartiq.chartiqsample.ChartOptions"
+            android:label="Chart Options"
+            android:parentActivityName="com.chartiq.chartiqsample.MainActivity"/>
+        <activity
+            android:name="com.chartiq.chartiqsample.ChartStyleChooseActivity"
+            android:label="Chart Style"
+            android:parentActivityName="com.chartiq.chartiqsample.ChartOptions"/>
+        <activity
+            android:name="com.chartiq.chartiqsample.studies.StudiesActivity"
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity
+            android:name="com.chartiq.chartiqsample.studies.StudyOptionsActivity"
+            android:label="Study Options"
+            android:parentActivityName="com.chartiq.chartiqsample.studies.StudiesActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+        </activity>
+        <activity
+            android:name="com.chartiq.chartiqsample.studies.StudySelectOptionActivity"
+            android:label="Choose Value"
+            android:parentActivityName="com.chartiq.chartiqsample.studies.StudyOptionsActivity">
+        </activity>
+    </application>
+
+</manifest>

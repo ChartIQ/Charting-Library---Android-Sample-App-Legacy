@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/minutes">
+        <item
+            android:id="@+id/m1"
+            android:title="1 Minute"/>
+        <item
+            android:id="@+id/m3"
+            android:title="3 Minute"/>
+        <item
+            android:id="@+id/m5"
+            android:title="5 Minute"/>
+        <item
+            android:id="@+id/m10"
+            android:title="10 Minute"/>
+        <item
+            android:id="@+id/m15"
+            android:title="15 Minute"/>
+        <item
+            android:id="@+id/m30"
+            android:title="30 Minute"/>
+    </group>
+
+    <group
+        android:id="@+id/hours">
+        <item
+            android:id="@+id/h1"
+            android:title="1 Hour"/>
+        <item
+            android:id="@+id/h4"
+            android:title="4 Hour"/>
+    </group>
+
+    <group
+        android:id="@+id/days">
+        <item
+            android:id="@+id/d1"
+            android:title="1 Day"/>
+        <item
+            android:id="@+id/d2"
+            android:title="2 Day"/>
+        <item
+            android:id="@+id/d3"
+            android:title="3 Day"/>
+        <item
+            android:id="@+id/d5"
+            android:title="5 Day"/>
+        <item
+            android:id="@+id/d10"
+            android:title="10 Day"/>
+        <item
+            android:id="@+id/d20"
+            android:title="20 Day"/>
+    </group>
+
+    <group
+        android:id="@+id/weeks">
+        <item
+            android:id="@+id/w1"
+            android:title="1 Week"/>
+    </group>
+
+    <group
+        android:id="@+id/months">
+        <item
+            android:id="@+id/month1"
+            android:title="1 Month"/>
+    </group>
+</menu>

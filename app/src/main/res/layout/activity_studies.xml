@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_studies"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            android:contentInsetStartWithNavigation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="#151f28"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/study_search_field"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/search_for_studies"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textAllCaps="true"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#666666"
+                    android:textSize="24dp"/>
+
+                <TextView
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:width="48dp"
+                    android:height="48dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:onClick="clearStudySearch"
+                    android:text="x"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/selection_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            android:contentInsetStartWithNavigation="0dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/close_selection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:src="@drawable/close"/>
+
+            <TextView
+                android:id="@+id/studies_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Studies"
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="100dp"
+                android:layout_height="28dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/blue_button"
+                android:text="Add"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/remove_button"
+                android:layout_width="100dp"
+                android:layout_height="28dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/red_button"
+                android:text="Remove"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+        </android.support.v7.widget.Toolbar>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/studies_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:clipToPadding="false"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+
+    <com.chartiq.chartiq.ChartIQ
+        android:id="@+id/chart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#151f28</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="default_header_color">#CCC</color>
+    <color name="selected_study_color">#ebf2ff</color>
+    <color name="white">#fff</color>
+    <color name="grey">#fafafa</color>
+    <color name="blue">#4f88f7</color>
+</resources>

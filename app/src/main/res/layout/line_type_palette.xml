@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        android:onClick="changeLineType"
+        android:src="@drawable/solid1_white"
+        android:tag="solid1"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        android:onClick="changeLineType"
+        android:src="@drawable/solid2_white"
+        android:tag="solid3"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        android:onClick="changeLineType"
+        android:src="@drawable/solid3_white"
+        android:tag="solid5"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        android:onClick="changeLineType"
+        android:src="@drawable/dotted1_white"
+        android:tag="dotted3"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        android:onClick="changeLineType"
+        android:src="@drawable/dotted2_white"
+        android:tag="dotted5"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        android:onClick="changeLineType"
+        android:src="@drawable/dashed1_white"
+        android:tag="dashed3"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        android:onClick="changeLineType"
+        android:src="@drawable/dashed2_white"
+        android:tag="dashed5"/>
+
+</LinearLayout>

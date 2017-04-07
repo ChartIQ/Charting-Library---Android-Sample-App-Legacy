@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="chart_styles">
+        <item>Line</item>
+        <item>Candle</item>
+        <item>Bar</item>
+        <item>Wave</item>
+        <item>Colored bar</item>
+        <item>Colored line</item>
+        <item>Hollow candle</item>
+        <item>Volume candle</item>
+        <item>Scatterplot</item>
+        <item>Baseline delta</item>
+        <item>Baseline delta mountain</item>
+        <item>Mountain</item>
+        <item>Colored mountain</item>
+
+        <item>Heikin Ashi</item>
+        <item>Kagi</item>
+        <item>Renko</item>
+        <item>Range Bars</item>
+        <item>Point &amp; Figure</item>
+    </string-array>
+    <string-array name="drawing_tools">
+        <item>Channel</item>
+        <item>Doodle</item>
+        <item>Ellipse</item>
+        <item>Fib-arc</item>
+        <item>Fib-fan</item>
+        <item>Fib-retrace</item>
+        <item>Fib-timezone</item>
+        <item>Gartley</item>
+        <item>Horizontal line</item>
+        <item>Line</item>
+        <item>Pitch fork</item>
+        <item>Ray</item>
+        <item>Rectangle</item>
+        <item>Segment</item>
+        <item>Vertical line</item>
+    </string-array>
+    <string-array name="studies_list_headers">
+        <item>ACTIVE STUDIES</item>
+        <item>ADD AVAILABLE STUDIES</item>
+    </string-array>
+    <string-array name="colors">
+        <item>#960616</item>
+        <item>#ea1d2c</item>
+        <item>#ef6c53</item>
+        <item>#e4977c</item>
+        <item>#ffffff</item>
+
+        <item>#a16118</item>
+        <item>#f4932f</item>
+        <item>#f8ae63</item>
+        <item>#fbc58d</item>
+        <item>#cccccc</item>
+
+        <item>#cbb920</item>
+        <item>#fff126</item>
+        <item>#fff371</item>
+        <item>#fff69e</item>
+        <item>#b7b7b7</item>
+
+        <item>#007238</item>
+        <item>#00a553</item>
+        <item>#43b77a</item>
+        <item>#85c99e</item>
+        <item>#898989</item>
+
+        <item>#00746a</item>
+        <item>#00a99c</item>
+        <item>#2ebbb3</item>
+        <item>#7fcdc7</item>
+        <item>#707070</item>
+
+        <item>#004c7f</item>
+        <item>#0073ba</item>
+        <item>#4a8dc8</item>
+        <item>#81a8d7</item>
+        <item>#555555</item>
+
+        <item>#62095f</item>
+        <item>#912a8e</item>
+        <item>#a665a7</item>
+        <item>#bb8dbe</item>
+        <item>#1d1d1d</item>
+
+        <item>#9c005d</item>
+        <item>#e9088c</item>
+        <item>#ee6fa9</item>
+        <item>#f29bc1</item>
+        <item>#000000</item>
+    </string-array>
+</resources>
