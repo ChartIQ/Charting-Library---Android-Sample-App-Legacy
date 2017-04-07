@@ -7,7 +7,7 @@
 Charting-Library---Android-Sample-App.iml
 local.properties
 /app/app.iml
-/chartiq/chartiq.iml
+/chartiq-release/chartiq-release.iml
 .gradle/*
 .idea/*
 
