@@ -2,6 +2,7 @@ package com.chartiq.chartiqsample;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -120,6 +121,11 @@ public class MainActivity extends AppCompatActivity {
         new Item("divider", null, -1),
         new Item("item", "1 month", R.id.month1)
     };
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
