@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int REFRESH_INTERVAL = 1;
     private static final String defaultSymbol = "AAPL";
     public static final String chartUrl = "http://yourdeployment/template-native-sdk.html";
+    public static final String rokoApiKey = "";
+    public static final String rokoUserName = "";
     ChartIQ chartIQ;
 
     //top toolbar
@@ -155,10 +157,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        chartIQ.start("JGPHS0Pk6St63QUBdHk5uVZDM11T2Z1d1/BFz9E8HyI=", chartUrl, new ChartIQ.CallbackStart() {
+        chartIQ.start(rokoApiKey, chartUrl, new ChartIQ.CallbackStart() {
             @Override
             public void onStart() {
-                ChartIQ.setUser("android@chartiq.com", new ChartIQ.SetUserCallback() {
+                ChartIQ.setUser(rokoUserName, new ChartIQ.SetUserCallback() {
                     @Override
                     public void onSetUser(User user) {
                         chartIQ.setDataMethod(ChartIQ.DataMethod.PULL, defaultSymbol);
