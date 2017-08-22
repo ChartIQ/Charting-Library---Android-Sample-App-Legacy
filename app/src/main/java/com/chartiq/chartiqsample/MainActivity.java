@@ -586,27 +586,21 @@ public class MainActivity extends AppCompatActivity {
                 switch (chartStyle) {
                     case "Heikin Ashi":
                         chartIQ.setAggregationType("heikinashi");
-                        chartIQ.setChartType("candle");
                         break;
                     case "Kagi":
                         chartIQ.setAggregationType("kagi");
-                        chartIQ.setChartType("candle");
                         break;
                     case "Renko":
                         chartIQ.setAggregationType("renko");
-                        chartIQ.setChartType("candle");
                         break;
                     case "Range Bars":
                         chartIQ.setAggregationType("rangebars");
-                        chartIQ.setChartType("candle");
                         break;
                     case "Point & Figure":
                         chartIQ.setAggregationType("pandf");
-                        chartIQ.setChartType("candle");
                         break;
                     default:
                         chartIQ.setChartType(chartStyle.toLowerCase().replace(" ", "_"));
-                        chartIQ.setAggregationType(null);
                 }
                 logScale = data.getBooleanExtra("logScale", false);
                 chartIQ.setChartScale(logScale ? "log" : "linear");
