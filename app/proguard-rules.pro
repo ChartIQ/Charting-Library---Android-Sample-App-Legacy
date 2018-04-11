@@ -15,3 +15,11 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-dontoptimize
+-dontpreverify
+-dontshrink
+
+-dontobfuscate
+-keep class com.chartiq.sdk.** {*;}
+-keep interface com.chartiq.sdk.** {*;}
