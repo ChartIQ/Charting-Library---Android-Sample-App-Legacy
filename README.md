@@ -23,7 +23,7 @@ Feel free to contact us and request sample code and guidance on how to extend th
 
 Instructions for compiling the application and for using the native SDK can be found at:
 
-[http://documentation.chartiq.com/tutorial-tutorial-Starting on Android.html](http://documentation.chartiq.com/tutorial-tutorial-Starting%20on%20Android.html)
+[http://documentation.chartiq.com/tutorial-Starting on Android.html](http://documentation.chartiq.com/tutorial-Starting%20on%20Android.html)
 
 
 ## Contributing to this project
