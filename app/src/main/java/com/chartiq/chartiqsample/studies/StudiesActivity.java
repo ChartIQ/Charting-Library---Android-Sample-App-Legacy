@@ -63,7 +63,6 @@ public class StudiesActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         studiesList = (RecyclerView) findViewById(R.id.studies_list);
         chartIQ = (ChartIQ) findViewById(R.id.chart);
-        chartIQ.disableAnalytics = true;
         chartIQ.getSettings().setJavaScriptEnabled(true);
         chartIQ.getSettings().setDomStorageEnabled(true);
         chartIQ.addJavascriptInterface(chartIQ, "promises");
@@ -93,7 +92,7 @@ public class StudiesActivity extends AppCompatActivity {
             activeStudies = (ArrayList<Study>) getIntent().getExtras().getSerializable(ACTIVE_STUDIES);
             if (activeStudies != null) {
                 for (Study s : activeStudies) {
-                    chartIQ.addStudy(s);
+                    chartIQ.addStudy(s, false);
                 }
             }
             Collections.sort(activeStudies, new Comparator<Study>() {
@@ -164,7 +163,7 @@ public class StudiesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 for (Study s : lastSelection) {
-                    chartIQ.addStudy(s);
+                    chartIQ.addStudy(s, true);
                 }
                 activeStudies.addAll(lastSelection);
                 studiesAdapter.setActiveStudiesList(activeStudies);

@@ -36,7 +36,6 @@ import android.widget.TextView;
 
 import com.chartiq.sdk.ChartIQ;
 import com.chartiq.sdk.Promise;
-import com.chartiq.sdk.User;
 import com.chartiq.sdk.model.OHLCChart;
 import com.chartiq.sdk.model.Study;
 import com.chartiq.chartiqsample.studies.StudiesActivity;
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int CHART_OPTIONS_REQUEST_CODE = 3;
     private static final int REFRESH_INTERVAL = 1;
     private static final String defaultSymbol = "AAPL";
-    public static final String chartUrl = "http://yourdeployment/template-native-sdk.html";
+    public static final String chartUrl = "http://192.168.2.42/defaultBranch/default/sample-template-native-sdk.html";
     public static final String rokoApiKey = "";
     public static final String rokoUserName = "";
     ChartIQ chartIQ;
@@ -157,16 +156,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        chartIQ.start(rokoApiKey, chartUrl, new ChartIQ.CallbackStart() {
+        chartIQ.start(chartUrl, new ChartIQ.CallbackStart() {
             @Override
             public void onStart() {
-                ChartIQ.setUser(rokoUserName, new ChartIQ.SetUserCallback() {
-                    @Override
-                    public void onSetUser(User user) {
-                        chartIQ.setDataMethod(ChartIQ.DataMethod.PULL, defaultSymbol);
-                        chartIQ.setSymbol(defaultSymbol);
-                    }
-                });
+//                @Override
+                chartIQ.setDataMethod(ChartIQ.DataMethod.PULL, defaultSymbol);
+                chartIQ.setSymbol(defaultSymbol);
             }
         });
 
@@ -612,7 +607,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 activeStudies = (ArrayList<Study>) data.getSerializableExtra(ACTIVE_STUDIES);
                 for (Study activeStudy : activeStudies) {
-                    chartIQ.addStudy(activeStudy);
+                    chartIQ.addStudy(activeStudy, false);
                 }
             }
         } else {

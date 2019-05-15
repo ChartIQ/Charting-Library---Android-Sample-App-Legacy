@@ -94,14 +94,6 @@ public class ChartOptions extends AppCompatActivity {
             secretCounter = 0;
             final EditText username = new EditText(this);
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Set User")
-                    .setCancelable(true)
-                    .setView(username)
-                    .setPositiveButton("Set User", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            ChartIQ.setUser(username.getText().toString());
-                        }
-                    });
             AlertDialog alert = builder.create();
             alert.show();
         }
