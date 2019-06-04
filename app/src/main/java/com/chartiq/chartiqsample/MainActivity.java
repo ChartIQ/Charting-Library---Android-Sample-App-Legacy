@@ -64,11 +64,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int DRAW_REQUEST_CODE = 1;
     private static final int STUDIES_REQUEST_CODE = 2;
     private static final int CHART_OPTIONS_REQUEST_CODE = 3;
-    private static final int REFRESH_INTERVAL = 1;
     private static final String defaultSymbol = "AAPL";
-    public static final String chartUrl = "http://yourdeployment/template-native-sdk.html";
-    public static final String rokoApiKey = "";
-    public static final String rokoUserName = "";
+    public static final String chartUrl ="http://yourdeployment/sample-template-native-sdk.html";
     ChartIQ chartIQ;
 
     //top toolbar
@@ -136,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
         doMappings();
         createTalkbackFields();
 
-        chartIQ.setRefreshInterval(REFRESH_INTERVAL);
         symbolInput.setText(defaultSymbol);
 
         chartIQ.setDataSource(new ChartIQ.DataSource() {
