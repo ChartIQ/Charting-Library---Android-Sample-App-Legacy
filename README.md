@@ -16,7 +16,7 @@ Feel free to contact us and request sample code and guidance on how to extend th
 
 * A current Android Charting SDK. Download from https://github.com/ChartIQ/Charting-Library---Android-Sample-App/blob/master/chartiq-release/chartiq-release.aar
 
-* Minimum Android OS version is Nougat/7.1.2 - API 25, or last currently supported version.
+* Minimum Android OS version is Nougat/7.0 - API 24, or last currently supported version.
 
 ## Getting started
 
