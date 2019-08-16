@@ -90,11 +90,6 @@ public class StudiesActivity extends AppCompatActivity {
         }
         if (getIntent().hasExtra(ACTIVE_STUDIES)) {
             activeStudies = (ArrayList<Study>) getIntent().getExtras().getSerializable(ACTIVE_STUDIES);
-            if (activeStudies != null) {
-                for (Study s : activeStudies) {
-                    chartIQ.addStudy(s, false);
-                }
-            }
             Collections.sort(activeStudies, new Comparator<Study>() {
                 @Override
                 public int compare(Study o1, Study o2) {
@@ -165,10 +160,15 @@ public class StudiesActivity extends AppCompatActivity {
                 for (Study s : lastSelection) {
                     chartIQ.addStudy(s, true);
                 }
-                activeStudies.addAll(lastSelection);
-                studiesAdapter.setActiveStudiesList(activeStudies);
-                studiesAdapter.getAvailableStudies().removeAll(lastSelection);
-                clearSelection();
+
+                chartIQ.getActiveStudies().then(new Promise.Callback<Study[]>() {
+                    @Override
+                    public void call(Study[] studies) {
+                        activeStudies.addAll(lastSelection);
+                        studiesAdapter.setActiveStudiesList(activeStudies);
+                        clearSelection();
+                    }
+                });
             }
         });
         removeButton = findViewById(R.id.remove_button);
@@ -209,40 +209,41 @@ public class StudiesActivity extends AppCompatActivity {
         selectiontoolbar.setVisibility(View.GONE);
     }
 
-    private void configureStudiesList(final RecyclerView studiesList, List<Study> activeStudiesList, List<Study> availableStudies) {
+    private void configureStudiesList(final RecyclerView studiesList, final List<Study> activeStudiesList, List<Study> availableStudies) {
         studiesAdapter = new StudiesAdapter(this, activeStudiesList, availableStudies, new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 final Study clickedStudy = studiesAdapter.getItemByPosition((Integer) v.getTag());
-                chartIQ.getActiveStudies().than(new Promise.Callback<Study[]>() {
-                    @Override
-                    public void call(Study[] array) {
-                        if (array != null && array.length > 0) {
-                            ArrayList<Study> active = new ArrayList<>(Arrays.asList(array));
-                            for (final Study s : active) {
-                                if (s.shortName.equals(clickedStudy.shortName) || s.type.equals(clickedStudy.shortName) || s.type.equals(clickedStudy.type)) {
-                                    chartIQ.getStudyOutputParameters(s.shortName).than(new Promise.Callback<String>() {
+                if (activeStudiesList != null && activeStudiesList.size() > 0) {
+                    for (final Study s : activeStudiesList) {
+                        if (s.shortName.equals(clickedStudy.shortName) || s.type.equals(clickedStudy.shortName) || s.type.equals(clickedStudy.type)) {
+                            String name = s.type != null ? s.type : s.shortName;
+                            chartIQ.getStudyOutputParameters(name).then(new Promise.Callback<String>() {
+                                String name = s.type != null ? s.type : s.shortName;
+
+                                @Override
+                                public void call(final String outputs) {
+                                    chartIQ.getStudyInputParameters(name).then(new Promise.Callback<String>() {
                                         @Override
-                                        public void call(final String outputs) {
-
-                                            chartIQ.getStudyInputParameters(s.shortName).than(new Promise.Callback<String>() {
+                                        public void call(final String inputs) {
+                                            chartIQ.getStudyParameters(name).then(new Promise.Callback<String>() {
                                                 @Override
-                                                public void call(String inputs) {
-
+                                                public void call(final String parameters) {
                                                     Intent studyOptionsIntent = new Intent(StudiesActivity.this, StudyOptionsActivity.class);
                                                     studyOptionsIntent.putExtra("study", clickedStudy);
                                                     studyOptionsIntent.putExtra("outputs", outputs);
                                                     studyOptionsIntent.putExtra("inputs", inputs);
+                                                    studyOptionsIntent.putExtra("parameters", parameters);
                                                     startActivityForResult(studyOptionsIntent, 0);
                                                 }
                                             });
                                         }
                                     });
                                 }
-                            }
+                            });
                         }
                     }
-                });
+                }
             }
         });
         StickyHeaderDecoration decoration = new StickyHeaderDecoration(studiesAdapter);
