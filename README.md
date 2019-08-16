@@ -27,7 +27,7 @@ Instructions for compiling the application and for using the native SDK can be f
 ## Questions and support
 
 - Our development support team can be reached at [support@chartiq.com](mailto:support@chartiq.com).
-- Our javascript documentation can be found at https://documentation.chartiq.co
+- Our javascript documentation can be found at https://documentation.chartiq.com
 
 
 ## Contributing to this project
