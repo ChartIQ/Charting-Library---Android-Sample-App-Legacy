@@ -2,7 +2,6 @@ package com.chartiq.chartiqsample;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -33,6 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.content.res.Configuration;
 
 import com.chartiq.sdk.ChartIQ;
 import com.chartiq.sdk.Promise;
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int STUDIES_REQUEST_CODE = 2;
     private static final int CHART_OPTIONS_REQUEST_CODE = 3;
     private static final String defaultSymbol = "AAPL";
-    public static final String chartUrl ="http://yourdeployment/sample-template-native-sdk.html";
+    public static final String chartUrl = "http://yourdeployment/sample-template-native-sdk.html";
     ChartIQ chartIQ;
 
     //top toolbar
@@ -97,27 +97,27 @@ public class MainActivity extends AppCompatActivity {
     HashMap<String, Boolean> talkbackFields = new HashMap<String, Boolean>();
 
     private final Item[] items = new Item[]{
-        new Item("header", "Intervals", -1),
-        new Item("divider", null, -1),
-        new Item("item", "1 minute", R.id.m1),
-        new Item("item", "3 minute", R.id.m3),
-        new Item("item", "5 minute", R.id.m5),
-        new Item("item", "10 minute", R.id.m10),
-        new Item("item", "30 minute", R.id.m30),
-        new Item("divider", null, -1),
-        new Item("item", "1 hour", R.id.h1),
-        new Item("item", "4 hour", R.id.h4),
-        new Item("divider", null, -1),
-        new Item("item", "1 day", R.id.d1, true),
-        new Item("item", "2 day", R.id.d2),
-        new Item("item", "3 day", R.id.d3),
-        new Item("item", "5 day", R.id.d5),
-        new Item("item", "10 day", R.id.d10),
-        new Item("item", "20 day", R.id.d10),
-        new Item("divider", null, -1),
-        new Item("item", "1 week", R.id.w1),
-        new Item("divider", null, -1),
-        new Item("item", "1 month", R.id.month1)
+            new Item("header", "Intervals", -1),
+            new Item("divider", null, -1),
+            new Item("item", "1 minute", R.id.m1),
+            new Item("item", "3 minute", R.id.m3),
+            new Item("item", "5 minute", R.id.m5),
+            new Item("item", "10 minute", R.id.m10),
+            new Item("item", "30 minute", R.id.m30),
+            new Item("divider", null, -1),
+            new Item("item", "1 hour", R.id.h1),
+            new Item("item", "4 hour", R.id.h4),
+            new Item("divider", null, -1),
+            new Item("item", "1 day", R.id.d1, true),
+            new Item("item", "2 day", R.id.d2),
+            new Item("item", "3 day", R.id.d3),
+            new Item("item", "5 day", R.id.d5),
+            new Item("item", "10 day", R.id.d10),
+            new Item("item", "20 day", R.id.d10),
+            new Item("divider", null, -1),
+            new Item("item", "1 week", R.id.w1),
+            new Item("divider", null, -1),
+            new Item("item", "1 month", R.id.month1)
     };
 
     @Override
@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         doMappings();
         createTalkbackFields();
-
         symbolInput.setText(defaultSymbol);
 
         chartIQ.setDataSource(new ChartIQ.DataSource() {
@@ -155,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
         chartIQ.start(chartUrl, new ChartIQ.CallbackStart() {
             @Override
             public void onStart() {
-//                @Override
                 chartIQ.setDataMethod(ChartIQ.DataMethod.PULL, defaultSymbol);
                 chartIQ.setSymbol(defaultSymbol);
             }
@@ -530,10 +528,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void startStudiesActivity(View view) {
         if (chartLoaded) {
-            chartIQ.getStudyList().than(new Promise.Callback<Study[]>() {
+            chartIQ.getStudyList().then(new Promise.Callback<Study[]>() {
                 @Override
                 public void call(final Study[] studies) {
-                    chartIQ.getActiveStudies().than(new Promise.Callback<Study[]>() {
+                    chartIQ.getActiveStudies().then(new Promise.Callback<Study[]>() {
                         @Override
                         public void call(Study[] array) {
                             Intent studiesIntent = new Intent(MainActivity.this, StudiesActivity.class);

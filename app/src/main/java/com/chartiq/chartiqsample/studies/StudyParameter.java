@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class StudyParameter implements Serializable {
     String color;
+    String defaultColor;
     String heading;
     String name;
     String type;
