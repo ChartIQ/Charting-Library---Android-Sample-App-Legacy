@@ -216,7 +216,7 @@ public class StudiesActivity extends AppCompatActivity {
                 final Study clickedStudy = studiesAdapter.getItemByPosition((Integer) v.getTag());
                 if (activeStudiesList != null && activeStudiesList.size() > 0) {
                     for (final Study s : activeStudiesList) {
-                        if (s.shortName.equals(clickedStudy.shortName) || s.type.equals(clickedStudy.shortName) || s.type.equals(clickedStudy.type)) {
+                        if ((s.shortName != null && s.shortName.equals(clickedStudy.shortName)) || (s.type != null && (s.type.equals(clickedStudy.shortName) || s.type.equals(clickedStudy.type)))) {
                             String name = s.type != null ? s.type : s.shortName;
                             chartIQ.getStudyOutputParameters(name).then(new Promise.Callback<String>() {
                                 String name = s.type != null ? s.type : s.shortName;
@@ -241,6 +241,7 @@ public class StudiesActivity extends AppCompatActivity {
                                     });
                                 }
                             });
+                            break;
                         }
                     }
                 }
