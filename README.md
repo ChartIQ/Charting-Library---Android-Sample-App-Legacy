@@ -12,7 +12,7 @@ Feel free to contact us and request sample code and guidance on how to extend th
 
 ## Requirements
 
-* A valid version of ChartIQ's charting library (Version 7.0.3 or greater). Please contact sales@chartiq.com if you do not already have a license or evaluation version.
+* A valid version of ChartIQ's charting library (Version 7.0.5 or greater). Please contact sales@chartiq.com if you do not already have a license or evaluation version.
 
 * A current Android Charting SDK. Download from https://github.com/ChartIQ/Charting-Library---Android-Sample-App/blob/master/chartiq-release/chartiq-release.aar
 
