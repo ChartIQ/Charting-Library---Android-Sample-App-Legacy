@@ -38,8 +38,10 @@ public class StudyOptionsActivity extends AppCompatActivity {
     Study study;
     private HashMap<String, Object> defaultInputs = new HashMap<>();
     private HashMap<String, Object> defaultOutputs = new HashMap<>();
+    private HashMap<String, Object> defaultParameters = new HashMap<>();
     private HashMap<String, String> studyParameterColors = new HashMap<>();
     private HashMap<String, String> studyParameterValues = new HashMap<>();
+    private HashMap<String, Object> studyFields = new HashMap<>();
     private HashMap<String, String> movingAverageAbbr = new HashMap<>();
     LinearLayout optionsLayout;
     private PopupWindow colorPalette;
@@ -70,6 +72,15 @@ public class StudyOptionsActivity extends AppCompatActivity {
         studyParameterValues.put("OverBought", "studyOverBoughtValue");
         studyParameterValues.put("OverSold", "studyOverSoldValue");
         studyParameterValues.put("Show Zones", "studyOverZones");
+        studyFields.put("Close", "Close");
+        studyFields.put("Open", "Open");
+        studyFields.put("High", "High");
+        studyFields.put("Low", "Low");
+        studyFields.put("Adj_Close", "Adj_Close");
+        studyFields.put("hl/2", "hl/2");
+        studyFields.put("hlc/3", "hlc/3");
+        studyFields.put("hlcc/4", "hlcc/4");
+        studyFields.put("ohlc/4", "ohlc/4");
         movingAverageAbbr.put("ma", "simple");
         movingAverageAbbr.put("ema", "exponential");
         movingAverageAbbr.put("tsma", "time series");
@@ -87,6 +98,9 @@ public class StudyOptionsActivity extends AppCompatActivity {
             }
             if (study.outputs != null) {
                 defaultOutputs = new HashMap<>(study.outputs);
+            }
+            if (study.parameters != null) {
+                defaultParameters = new HashMap<>(study.parameters);
             }
         }
 
@@ -214,12 +228,13 @@ public class StudyOptionsActivity extends AppCompatActivity {
                 }
                 switch (parameter.type) {
                     case "select":
-                        if (studyParams.containsKey(parameter.name) && !"field".equals(studyParams.get(parameter.name))) {
+                        if(parameter.name.toLowerCase().equals("field")) {
+                            parameter.options = studyFields;
+                        }
+                        if(parameterNewValue != null) {
+                            parameter.value = parameterNewValue;
+                        } else if (studyParams.containsKey(parameter.name)) {
                             parameter.value = studyParams.get(parameter.name);
-                            if(parameter.value.getClass() == ArrayList.class){
-                                ArrayList<String> test = (ArrayList<String>) parameter.value;
-                                parameter.value = test.get(0);
-                            }
                         }
                         bindSelect(parameter);
                         break;
@@ -269,6 +284,11 @@ public class StudyOptionsActivity extends AppCompatActivity {
             if(movingAverageValue != null) {
                 displayText = (String) parameter.defaultInput;
             }
+        }
+
+        // default value for Field is actually field, which is normally handled in the Charting library but needs to be handled here
+        if(parameter.name.toLowerCase().equals("field") && displayText.toLowerCase().equals("field")) {
+            displayText = "Close";
         }
 
         // If there are display mappings be sure to get the correct display value
@@ -457,12 +477,16 @@ public class StudyOptionsActivity extends AppCompatActivity {
     public void resetToDefaults(View view) {
         study.inputs = new HashMap<>(defaultInputs);
         study.outputs = new HashMap<>(defaultOutputs);
+        study.parameters = new HashMap<>(defaultParameters);
         optionsLayout.removeAllViews();
         if (inputs != null) {
             bindStudyOptions(inputs, study.inputs);
         }
         if (outputs != null) {
             bindStudyOptions(outputs, study.outputs);
+        }
+        if (parameters != null) {
+            bindStudyOptions(parameters, study.parameters);
         }
     }
 
