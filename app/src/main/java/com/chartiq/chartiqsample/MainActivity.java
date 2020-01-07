@@ -134,6 +134,9 @@ public class MainActivity extends AppCompatActivity {
         createTalkbackFields();
         symbolInput.setText(defaultSymbol);
 
+        // Enable passing of focus requests into the webview
+        chartIQ.requestFocus(View.FOCUS_DOWN);
+
         chartIQ.setDataSource(new ChartIQ.DataSource() {
             @Override
             public void pullInitialData(Map<String, Object> params, ChartIQ.DataSourceCallback callback) {
@@ -613,6 +616,9 @@ public class MainActivity extends AppCompatActivity {
         drawingToolName.setText(drawingTool);
         drawingToolbar.setVisibility(View.VISIBLE);
         switch (drawingTool) {
+            case "Annotation":
+                chartIQ.enableDrawing("annotation");
+                break;
             case "Channel":
                 chartIQ.enableDrawing("channel");
                 break;
