@@ -22,6 +22,7 @@
         <item>Point &amp; Figure</item>
     </string-array>
     <string-array name="drawing_tools">
+        <item>Annotation</item>
         <item>Channel</item>
         <item>Doodle</item>
         <item>Ellipse</item>
