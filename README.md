@@ -1,13 +1,14 @@
 # Charting-Library---Android-Sample-App
 
-This is a basic Android application built with ChartIQ's Android Charting SDK. 
-Both the native SDK and this application are intended to provide guidance on how to implement a native Android app that interacts with the most common API calls in the [javaScript library](https://documentation.chartiq.com).
+This is a basic Android application built with ChartIQ's Android Charting SDK.
+Both the native SDK and this application are intended to provide guidance on how to implement a native Android app that interacts with the most common API calls in the [JavaScript library](https://documentation.chartiq.com).
 
+**Coming soon:** A new app with a completely redesigned UI and support for version 8.0.0 of the ChartIQ library.
 
 ## About the Android Charting SDK
 
 The [Android Charting SDK](https://github.com/ChartIQ/Charting-Library---Android-SDK) has been designed to support this basic application and may need to be extended to support more elaborate implementations.
-This can be done by adding additional java code to invoke Javascript functions directly. 
+This can be done by adding additional java code to invoke Javascript functions directly.
 
 It only illustrates data loading via the Pull method. See [setDataMethod()](https://chartiq.readme.io/docs/setdatamethod-pushpull-behavior) for more details on how to change the behavior.
 
@@ -15,7 +16,9 @@ Feel free to contact us and request sample code and guidance on how to extend th
 
 ## Requirements
 
-* A valid version of ChartIQ's charting library (Version 7.0.5 or greater). Please contact sales@chartiq.com if you do not already have a license or evaluation version.
+- Version 7.0.5 to 7.5.0 of the ChartIQ library. Support for version 8.0.0 coming soon.
+
+  Please contact sales@chartiq.com if you do not already have a license or evaluation version of the library.
 
 * A current Android Charting SDK. Download from https://github.com/ChartIQ/Charting-Library---Android-Sample-App/blob/master/chartiq-release/chartiq-release.aar
 
