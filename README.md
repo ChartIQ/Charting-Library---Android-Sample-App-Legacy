@@ -4,7 +4,7 @@ This is a basic Android application built with ChartIQ's Android charting SDK. B
 
 **End of support**
 
-Support for this app and the [Charting-Library---Android-SDK-Legacy](https://github.com/ChartIQ/Charting-Library---Android-SDK-Legacy) project ended as of Version 8.2.0 of the ChartIQ library. Please see the app in the [ChartIQ-Android-SDK](https://github.com/ChartIQ/ChartIQ-Android-SDK) instead.
+Support for this app and the [Charting-Library---Android-SDK-Legacy](https://github.com/ChartIQ/Charting-Library---Android-SDK-Legacy) project ended as of Version 8.0.0 of the ChartIQ library. Please see the app in the [ChartIQ-Android-SDK](https://github.com/ChartIQ/ChartIQ-Android-SDK) instead.
 
 ## Requirements
 
