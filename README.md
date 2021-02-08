@@ -10,7 +10,7 @@ Support for this app and the [Charting-Library---Android-SDK-Legacy](https://git
 
 Version 7.0.5 to 7.5.0 of the ChartIQ library.
 
-Minimum Android OS version is Nougat/7.0 - API 24, or last currently supported version.
+Minimum Android OS version is 7.0 Nougat (API level 24), or last currently supported version.
 
 ## Getting started
 
