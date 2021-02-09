@@ -8,16 +8,20 @@ Support for this app and the [Charting-Library---Android-SDK-Legacy](https://git
 
 ## Requirements
 
-Version 7.0.5 to 7.5.0 of the ChartIQ library.
+- Version 7.0.5 to 7.5.0 of the ChartIQ library
 
-Android 7.0 Nougat (API level 24) or later.
+- Android 7.0 Nougat (API level 24) or later
 
 ## Getting started
 
-See the [Getting Started on Mobile: Android](http://documentation.chartiq.com/tutorial-Starting%20on%20Android.html) tutorial for instructions on compiling the application and using the native SDK.
+See the [Starting on Mobile: Android - Legacy](https://documentation.chartiq.com/tutorial-Starting%20on%20Android%20-%20Legacy.html) tutorial for instructions on compiling the application and using the native SDK.
+
+## API documentation
+
+- [App/SDK](https://chartiq.readme.io/docs)
+
+- [ChartIQ JavaScript library](https://documentation.chartiq.com)
 
 ## Questions and support
 
 Contact our development support team at <support@chartiq.com>.
-
-See our JavaScript documentation at https://documentation.chartiq.com.
