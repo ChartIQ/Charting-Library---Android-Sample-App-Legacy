@@ -14,7 +14,7 @@ Support for this app and the [Charting-Library---Android-SDK-Legacy](https://git
 
 ## Getting started
 
-See the [Starting on Mobile: Android - Legacy](https://documentation.chartiq.com/tutorial-Starting%20on%20Android%20-%20Legacy.html) tutorial for instructions on compiling the application and using the native SDK.
+See the [Getting Started on Mobile: Android - Legacy](https://documentation.chartiq.com/tutorial-Starting%20on%20Android%20-%20Legacy.html) tutorial for instructions on compiling the application and using the native SDK.
 
 ## API documentation
 
