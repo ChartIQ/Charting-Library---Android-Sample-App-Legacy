@@ -18,7 +18,7 @@ See the [Getting Started on Mobile: Android - Legacy](https://documentation.char
 
 ## API documentation
 
-- [App/SDK](https://chartiq.readme.io/docs)
+- [App/SDK](https://documentation.chartiq.com/chartiq.legacy.mobile/docs.html)
 
 - [ChartIQ JavaScript library](https://documentation.chartiq.com)
 
